@@ -8,27 +8,6 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular": {
-          "application": {
-            "strict": true
-          },
-          "component": {
-            "style": "scss",
-            "skipTests": true
-          },
-          "class": {
-            "skipTests": true
-          },
-          "directive": {
-            "skipTests": true
-          },
-          "pipe": {
-            "skipTests": true
-          },
-          "service": {
-            "skipTests": true
-          }
         }
       },
       "root": "",
@@ -36,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/is-sem1-requirements-engineering-frontend",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -72,9 +51,12 @@
               "outputHashing": "all"
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -83,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "IS-SEM1-Requirements-Engineering-Frontend:build:production"
+              "browserTarget": "IS-SEM1-Requirements-Engineering-Frontend:build:production"
             },
             "development": {
-              "buildTarget": "IS-SEM1-Requirements-Engineering-Frontend:build:development"
+              "browserTarget": "IS-SEM1-Requirements-Engineering-Frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "IS-SEM1-Requirements-Engineering-Frontend:build"
+            "browserTarget": "IS-SEM1-Requirements-Engineering-Frontend:build"
           }
         },
         "test": {
