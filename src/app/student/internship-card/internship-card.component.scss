@@ -1,0 +1,48 @@
+.title-span {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+p{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #666;
+  font-size: 18px;
+}
+
+button {
+  background-color: #947dcc;
+  color: #fff;
+  border: none;
+  margin-left: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 140px;
+}
+
+button:hover {
+  background-color: #9a87b4;
+}
+
+.internship-card{
+  margin-top: 20px;
+  width: 98.7%;
+}
+
+.main-container{
+  display: flex;
+}
+
+.left-side-data{
+  width: 800px;
+  padding-right: 20px;
+}
+
+.right-side-data{
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

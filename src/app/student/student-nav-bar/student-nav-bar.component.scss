@@ -1,0 +1,32 @@
+
+.nav-button{
+
+  &-container-left button , &-container-right button{
+    background-color: #947dcc;
+    cursor: pointer;
+    height: 45px;
+    width: 150px;
+  }
+
+  &-container-right button{
+    width: 45px;
+    height: 45px;
+  }
+
+}
+
+
+.left-side-buttons{
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav {
+  background-color: #673AB7;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+}
+

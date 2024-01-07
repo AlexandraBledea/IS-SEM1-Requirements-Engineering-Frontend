@@ -1,0 +1,50 @@
+<app-student-nav-bar></app-student-nav-bar>
+<body>
+  <div class="content-container">
+    <div class="main-container">
+      <mat-card class="application-card">
+        <div class="title-container">
+          <h1>Application</h1>
+        </div>
+
+        <form class="cover-letter-form">
+          <div class="other-information-container">
+            <mat-form-field
+              class="cover_letter"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Cover letter</mat-label>
+              <textarea matInput> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+        </form>
+
+        <div class="save-button-container">
+          <button
+            class="info-button"
+            mat-raised-button
+            (click)="cancel()"
+            color="accent"
+            type="submit"
+            id="form-button"
+          >
+            Cancel
+          </button>
+          <button
+            class="info-button"
+            (click)="apply()"
+            mat-raised-button
+            color="accent"
+            type="submit"
+            id="form-button"
+          >
+            Apply
+          </button>
+          <br />
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</body>

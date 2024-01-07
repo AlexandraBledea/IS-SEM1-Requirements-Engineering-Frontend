@@ -1,0 +1,247 @@
+<app-student-nav-bar></app-student-nav-bar>
+<body>
+  <div class="content-container">
+    <div class="main-container">
+      <mat-card class="personal-info-card">
+        <form [formGroup]="studentProfileFormGroup">
+          <br />
+
+          <div class="personal-information-container">
+            <mat-form-field
+              class="forename"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Forename</mat-label>
+              <input matInput formControlName="forename" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="surname"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Surname</mat-label>
+              <input matInput formControlName="surname" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="email" appearance="outline" color="primary">
+              <mat-icon matPrefix>alternate_email</mat-icon>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" />
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="personal-information-container">
+            <mat-form-field
+              class="phone_number"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Phone number</mat-label>
+              <input matInput formControlName="phoneNumber" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="age" appearance="outline" color="primary">
+              <mat-label>Age</mat-label>
+              <input matInput formControlName="age" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="personal_website"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Personal website</mat-label>
+              <input matInput formControlName="personalWebsite" />
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="location"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Location</mat-label>
+              <textarea matInput formControlName="location"></textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="current_institution"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Current institution</mat-label>
+              <textarea
+                matInput
+                formControlName="currentInstitution"
+              ></textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="study_program"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Study program</mat-label>
+              <textarea matInput formControlName="studyProgram"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="relevant_coursework"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Relevant coursework</mat-label>
+              <textarea matInput formControlName="relevantCoursework">
+              </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field class="gpa" appearance="outline" color="primary">
+              <mat-label>GPA</mat-label>
+              <textarea matInput formControlName="gpa"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="past_experience"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Past experience</mat-label>
+              <textarea matInput formControlName="pastExperience"> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="achievements"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Achievements</mat-label>
+              <textarea matInput formControlName="achievements"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="skills" appearance="outline" color="primary">
+              <mat-label>Skills</mat-label>
+              <textarea matInput formControlName="skills"> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="projects"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Projects</mat-label>
+              <textarea matInput formControlName="projects"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="extracurricular_activities"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Extracurricular activities</mat-label>
+              <textarea matInput formControlName="extracurricularActivities">
+              </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="languages"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Language</mat-label>
+              <textarea matInput formControlName="languages"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="career_objectives"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Career objectives</mat-label>
+              <textarea matInput formControlName="careerObjectives"> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="references"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>References</mat-label>
+              <textarea matInput formControlName="references"></textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="hobbies"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Hobbies</mat-label>
+              <textarea matInput formControlName="hobbies"> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="save-button-container">
+            <button
+              class="info-button"
+              mat-raised-button
+              (click)="cancel()"
+              color="accent"
+              type="submit"
+              id="form-button"
+            >
+              Cancel
+            </button>
+            <button
+              class="info-button"
+              [disabled]="!studentProfileFormGroup.valid"
+              (click)="editProfile()"
+              mat-raised-button
+              color="accent"
+              type="submit"
+              id="form-button"
+            >
+              Save
+            </button>
+            <br />
+          </div>
+
+          <br /><br />
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</body>
