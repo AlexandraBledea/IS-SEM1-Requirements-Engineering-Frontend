@@ -2,62 +2,76 @@
 <body>
   <div class="content-container">
     <aside class="student-home-sidenav">
-      <form class="search-filter-form">
-        <mat-form-field class="search-field">
-          <mat-label class="search-label"
-            >Job position or company name</mat-label
-          >
-          <input class="search-input" matInput />
-        </mat-form-field>
+      <mat-form-field class="search-field">
+        <mat-label class="search-label"
+          >Job position or company name
+        </mat-label>
+        <input [(ngModel)]="searchValue" class="search-input" matInput />
+      </mat-form-field>
+      <button
+        (click)="fetchSearchedInternshipAnnouncements()"
+        mat-flat-button
+        class="search-button"
+        color="accent"
+      >
+        Search
+      </button>
 
-        <mat-form-field class="filter-field">
-          <mat-label class="filter-label">Industry</mat-label>
-          <mat-select class="filter-select">
-            <mat-option>Constructii</mat-option>
-            <mat-option>Banci</mat-option>
-            <mat-option>IT-Software</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <mat-form-field class="filter-field">
+        <mat-label class="filter-label">Industry</mat-label>
+        <mat-select class="filter-select" [(ngModel)]="selectedIndustry">
+          <mat-option [value]="undefined">No filter</mat-option>
+          <mat-option *ngFor="let industry of industries" [value]="industry">{{
+            industry
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <mat-form-field class="filter-field">
-          <mat-label class="filter-label">Location</mat-label>
-          <mat-select class="filter-select">
-            <mat-option>Cluj Napoca</mat-option>
-            <mat-option>Bucuresti</mat-option>
-            <mat-option>Oradea</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <mat-form-field class="filter-field">
+        <mat-label class="filter-label">Location</mat-label>
+        <mat-select class="filter-select" [(ngModel)]="selectedLocation">
+          <mat-option [value]="undefined">No filter</mat-option>
+          <mat-option *ngFor="let location of locations" [value]="location">{{
+            location
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <mat-form-field class="filter-field">
-          <mat-label class="filter-label">Salary</mat-label>
-          <mat-select class="filter-select">
-            <mat-option>1000-2000</mat-option>
-            <mat-option>2000-3000</mat-option>
-            <mat-option>3000-4000</mat-option>
-            <mat-option> greater than 4000</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <mat-form-field class="filter-field">
+        <mat-label class="filter-label">Salary</mat-label>
+        <mat-select class="filter-select" [(ngModel)]="selectedSalary">
+          <mat-option [value]="undefined">No filter</mat-option>
+          <mat-option *ngFor="let salary of salaries" [value]="salary">{{
+            salary.text
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <mat-form-field class="filter-field">
-          <mat-label class="filter-label">Duration</mat-label>
-          <mat-select class="filter-select">
-            <mat-option>2-4 weeks</mat-option>
-            <mat-option>4-8 weeks</mat-option>
-            <mat-option>8-12 weeks</mat-option>
-            <mat-option>more than 12 weeks</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <mat-form-field class="filter-field">
+        <mat-label class="filter-label">Duration</mat-label>
+        <mat-select class="filter-select" [(ngModel)]="selectedDuration">
+          <mat-option [value]="undefined">No filter</mat-option>
+          <mat-option *ngFor="let duration of durations" [value]="duration">{{
+            duration.text
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <button mat-flat-button class="search-button" color="accent">
-          Search
-        </button>
-      </form>
+      <button
+        mat-flat-button
+        class="filter-button"
+        color="accent"
+        (click)="fetchFilteredInternshipAnnouncements()"
+      >
+        Filter
+      </button>
     </aside>
     <main>
-      <app-internship-card> </app-internship-card>
-      <app-internship-card> </app-internship-card>
-      <app-internship-card> </app-internship-card>
-      <app-internship-card> </app-internship-card>
+      <app-internship-card
+        *ngFor="let internship of internshipAnnouncements"
+        [internship]="internship"
+      >
+      </app-internship-card>
     </main>
   </div>
 </body>

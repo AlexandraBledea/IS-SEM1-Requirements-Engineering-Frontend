@@ -3,7 +3,12 @@
   <div class="content-container">
     <div class="main-container">
       <mat-card class="personal-info-card">
-        <form [formGroup]="studentProfileFormGroup">
+        <form
+          [formGroup]="studentProfileFormGroup"
+          (click)="resetWarnings()"
+          (keyup.down)="resetWarnings()"
+          tabindex="0"
+        >
           <br />
 
           <div class="personal-information-container">
@@ -221,7 +226,6 @@
               (click)="cancel()"
               color="accent"
               type="submit"
-              id="form-button"
             >
               Cancel
             </button>
@@ -232,12 +236,22 @@
               mat-raised-button
               color="accent"
               type="submit"
-              id="form-button"
             >
-              Save
+              {{ student?.studyProgram === null ? 'Create' : 'Edit' }}
             </button>
             <br />
           </div>
+
+          <mat-card
+            class="password-hint"
+            *ngIf="showCreateAccountErrorMessage"
+            >{{ errorMessage }}</mat-card
+          >
+          <mat-card
+            class="password-hint-green"
+            *ngIf="showCreateAccountSuccessfulMessage"
+            >Profile updated successfully!</mat-card
+          >
 
           <br /><br />
         </form>

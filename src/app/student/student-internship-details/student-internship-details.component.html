@@ -4,62 +4,54 @@
     <div class="main-container">
       <mat-card class="internship-info-card">
         <div class="title-container">
-          <p><span class="title-span">Job Title: </span> {{ 'Job Title 1' }}</p>
+          <p>
+            <span class="title-span">Job Title: </span>
+            {{ this.internship.jobTitle }}
+          </p>
         </div>
 
         <div class="info-container">
           <div class="paragraph-container">
             <p class="info-paragraph">
-              <span class="title-span">Company Name: </span> {{ 'Company 1' }}
+              <span class="title-span">Company Name: </span>
+              {{ this.internship.company.name }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Salary: </span> {{ '6000' }}
+              <span class="title-span">Salary: </span>
+              {{ this.internship.salary }}
             </p>
           </div>
 
           <div class="paragraph-container">
             <p class="info-paragraph">
               <span class="title-span">Job Position: </span>
-              {{ 'Software Developer Junior' }}
+              {{ this.internship.position }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Duration: </span> {{ '12 weeks' }}
+              <span class="title-span">Duration: </span>
+              {{ this.internship.duration }}
             </p>
           </div>
 
           <div class="paragraph-container">
             <p class="info-paragraph">
-              <span class="title-span">Industry: </span> {{ 'IT-Software' }}
+              <span class="title-span">Industry: </span>
+              {{ this.internship.industry }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Available positions: </span> {{ '12' }}
+              <span class="title-span">Available positions: </span>
+              {{ this.internship.availablePositions }}
             </p>
           </div>
 
           <div class="paragraph-container">
             <p class="info-paragraph">
-              <span class="title-span">Location: </span> {{ 'Cluj Napoca' }}
+              <span class="title-span">Location: </span>
+              {{ this.internship.location }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Deadline: </span> {{ '12.02.2024' }}
-            </p>
-          </div>
-        </div>
-
-        <div class="long-info-wrapper-container">
-          <div class="long-info-container">
-            <p class="title-span">Company vision:</p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              <span class="title-span">Deadline: </span>
+              {{ this.internship.deadline }}
             </p>
           </div>
         </div>
@@ -67,33 +59,14 @@
         <div class="long-info-wrapper-container">
           <div class="long-info-container">
             <p class="title-span">Job Description:</p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
+            <p>{{ this.internship.jobDescription }}</p>
           </div>
         </div>
 
         <div class="long-info-container">
           <p class="title-span">Requirements:</p>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            {{ this.internship.requirements }}
           </p>
         </div>
 
@@ -101,16 +74,7 @@
           <div class="long-info-container">
             <p class="title-span">Schedule:</p>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              {{ this.internship.schedule }}
             </p>
           </div>
         </div>
@@ -119,16 +83,7 @@
           <div class="long-info-container">
             <p class="title-span">Process:</p>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              {{ this.internship.process }}
             </p>
           </div>
         </div>
@@ -137,16 +92,7 @@
           <div class="long-info-container">
             <p class="title-span">Benefits:</p>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              {{ this.internship.benefits }}
             </p>
           </div>
         </div>

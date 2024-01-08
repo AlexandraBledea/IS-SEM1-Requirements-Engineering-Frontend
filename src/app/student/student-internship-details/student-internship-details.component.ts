@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Internship } from '../../data-types/Internship';
+import { CommunicationService } from '../../service/communication.service';
 
 @Component({
   selector: 'app-student-internship-details',
@@ -7,7 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-internship-details.component.scss'],
 })
 export class StudentInternshipDetailsComponent {
-  constructor(private router: Router) {}
+  internship!: Internship;
+  constructor(
+    private router: Router,
+    private communicationService: CommunicationService,
+  ) {
+    this.internship = this.communicationService.getDetailsCompany();
+  }
 
   applyToInternship() {
     this.router.navigate(['/apply-to-internship']);
