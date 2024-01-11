@@ -46,8 +46,11 @@ export class LoginFormComponent {
           else {
             this.cookieService.set('Token', result['token']);
             const jwt = parseJwt(result['token']);
-            if (jwt['role'] === Role.STUDENT)
+            if (jwt['role'] === Role.STUDENT) {
               this.router.navigate(['../student-home']); //TODO aici vine pagina principala
+            } else {
+              this.router.navigate(['../recruiter-home']);
+            }
           }
         },
       });

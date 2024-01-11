@@ -28,6 +28,11 @@ import { InternshipCardComponent } from './student/internship-card/internship-ca
 import { ProfilePageComponent } from './student/profile-page/profile-page.component';
 import { StudentInternshipDetailsComponent } from './student/student-internship-details/student-internship-details.component';
 import { ApplyInternshipComponent } from './student/apply-internship/apply-internship.component';
+import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home.component';
+import { RecruiterNavBarComponent } from './recuiter/recruiter-nav-bar/recruiter-nav-bar.component';
+import { RecruiterApplicationDetailsComponent } from './recuiter/recruiter-application-details/recruiter-application-details.component';
+import { ApplicationCardComponent } from './recuiter/application-card/application-card.component';
+import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,11 @@ import { ApplyInternshipComponent } from './student/apply-internship/apply-inter
     ProfilePageComponent,
     StudentInternshipDetailsComponent,
     ApplyInternshipComponent,
+    RecruiterHomeComponent,
+    RecruiterNavBarComponent,
+    RecruiterApplicationDetailsComponent,
+    ApplicationCardComponent,
+    RecruiterProfilePageComponent,
   ],
   imports: [
     BrowserModule,

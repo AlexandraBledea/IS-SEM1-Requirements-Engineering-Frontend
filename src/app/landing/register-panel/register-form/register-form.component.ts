@@ -87,7 +87,7 @@ export class RegisterFormComponent {
         surname: valuesFromForm.surname!,
         forename: valuesFromForm.forename!,
         phoneNumber: valuesFromForm.phoneNumber!,
-        role: Role.STUDENT,
+        role: Role.RECRUITER,
         email: valuesFromForm.email!,
         password: valuesFromForm.password2!,
         companyName: valuesFromForm.companyName!,

@@ -6,6 +6,8 @@ import { StudentHomeComponent } from './student/student-home/student-home.compon
 import { ProfilePageComponent } from './student/profile-page/profile-page.component';
 import { StudentInternshipDetailsComponent } from './student/student-internship-details/student-internship-details.component';
 import { ApplyInternshipComponent } from './student/apply-internship/apply-internship.component';
+import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home.component';
+import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,9 +18,11 @@ const routes: Routes = [
   },
   { path: 'student-profile', component: ProfilePageComponent },
   { path: 'student-home', component: StudentHomeComponent },
+  { path: 'recruiter-home', component: RecruiterHomeComponent },
+  { path: 'recruiter-profile', component: RecruiterProfilePageComponent },
   { path: 'login', component: LoginPanelComponent },
   { path: 'register', component: RegisterPanelComponent },
-  { path: '**', redirectTo: 'register' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

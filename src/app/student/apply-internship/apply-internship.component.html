@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
 <app-student-nav-bar></app-student-nav-bar>
 <body>
   <div class="content-container">
@@ -20,6 +21,16 @@
             <br />
           </div>
         </form>
+
+        <div class="documents-container">
+          <!-- <label>Doc1</label> -->
+          <input type="file" #file1 (change)="onFile1Selected($event)" />
+          <br />
+
+          <!-- <label>Doc2</label> -->
+          <input type="file" #file2 (change)="onFile2Selected($event)" />
+          <br />
+        </div>
 
         <div class="save-button-container">
           <button
