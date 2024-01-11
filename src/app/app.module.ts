@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterPanelComponent } from 'src/app/landing/register-panel/register-panel.component';
 import { RegisterFormComponent } from './landing/register-panel/register-form/register-form.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,10 +28,13 @@ import { InternshipCardComponent } from './student/internship-card/internship-ca
 import { ProfilePageComponent } from './student/profile-page/profile-page.component';
 import { StudentInternshipDetailsComponent } from './student/student-internship-details/student-internship-details.component';
 import { ApplyInternshipComponent } from './student/apply-internship/apply-internship.component';
+import { AuthenticationInterceptor } from './service/authentication-interceptor.service';
+import { InternshipApplicationsComponent } from './student/internship-applications/internship-applications.component';
+import { ApplicationCardComponent } from './student/application-card/application-card.component';
+import { ApplicationDetailsComponent } from './student/application-details/application-details.component';
 import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home.component';
 import { RecruiterNavBarComponent } from './recuiter/recruiter-nav-bar/recruiter-nav-bar.component';
 import { RecruiterApplicationDetailsComponent } from './recuiter/recruiter-application-details/recruiter-application-details.component';
-import { ApplicationCardComponent } from './recuiter/application-card/application-card.component';
 import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
 
 @NgModule({
@@ -52,6 +55,9 @@ import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page
     RecruiterApplicationDetailsComponent,
     ApplicationCardComponent,
     RecruiterProfilePageComponent,
+    InternshipApplicationsComponent,
+    ApplicationCardComponent,
+    ApplicationDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,13 @@ import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page
     MatToolbarModule,
     MatSidenavModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

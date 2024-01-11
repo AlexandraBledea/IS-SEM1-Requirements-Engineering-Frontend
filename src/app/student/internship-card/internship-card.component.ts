@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Internship } from '../../data-types/Internship';
+import { CommunicationService } from '../../service/communication.service';
 
 @Component({
   selector: 'app-internship-card',
@@ -7,16 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./internship-card.component.scss'],
 })
 export class InternshipCardComponent {
-  @Input() companyName?: string;
-  @Input() vision?: string;
-  @Input() jobPosition?: string;
-  @Input() industry?: string;
-  @Input() location?: string;
-  @Input() duration?: string;
+  @Input() internship!: Internship;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private communicationService: CommunicationService,
+  ) {}
 
   displayDetails() {
+    this.communicationService.setDetailsCompany(this.internship);
     this.router.navigate(['/student-internship-announcement']);
   }
 }

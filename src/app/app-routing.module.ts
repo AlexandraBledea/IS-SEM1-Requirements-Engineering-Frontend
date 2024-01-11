@@ -6,6 +6,8 @@ import { StudentHomeComponent } from './student/student-home/student-home.compon
 import { ProfilePageComponent } from './student/profile-page/profile-page.component';
 import { StudentInternshipDetailsComponent } from './student/student-internship-details/student-internship-details.component';
 import { ApplyInternshipComponent } from './student/apply-internship/apply-internship.component';
+import { InternshipApplicationsComponent } from './student/internship-applications/internship-applications.component';
+import { ApplicationDetailsComponent } from './student/application-details/application-details.component';
 import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home.component';
 import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
 
@@ -16,6 +18,8 @@ const routes: Routes = [
     path: 'student-internship-announcement',
     component: StudentInternshipDetailsComponent,
   },
+  { path: 'student-applications', component: InternshipApplicationsComponent },
+  { path: 'student-application', component: ApplicationDetailsComponent },
   { path: 'student-profile', component: ProfilePageComponent },
   { path: 'student-home', component: StudentHomeComponent },
   { path: 'recruiter-home', component: RecruiterHomeComponent },

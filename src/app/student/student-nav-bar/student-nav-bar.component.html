@@ -13,7 +13,9 @@
         </button>
       </div>
       <div class="nav-button-container-left">
-        <button mat-flat-button color="primary">Applications</button>
+        <button mat-flat-button color="primary" (click)="applicationsPage()">
+          Applications
+        </button>
       </div>
     </div>
     <div class="right-side-buttons">
@@ -23,6 +25,7 @@
           mat-fab
           color="primary"
           aria-label="Logout icon button"
+          (click)="logout()"
         >
           <mat-icon id="log-out-icon">logout</mat-icon>
         </button>
