@@ -72,27 +72,6 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  // initializeStudentFields(){
-  //   this.student = {
-  //     age: parseInt(this.studentProfileFormGroup.value.age!),
-  //     location: this.studentProfileFormGroup.value.location!,
-  //     personalWebsite: this.studentProfileFormGroup.value.personalWebsite!,
-  //     currentInstitution: this.studentProfileFormGroup.value.currentInstitution!,
-  //     studyProgram: this.studentProfileFormGroup.value.studyProgram!,
-  //     relevantCoursework: this.studentProfileFormGroup.value.relevantCoursework!,
-  //     gpa: this.studentProfileFormGroup.value.gpa!,
-  //     pastExperience: this.studentProfileFormGroup.value.pastExperience!,
-  //     skills: this.studentProfileFormGroup.value.skills!,
-  //     projects: this.studentProfileFormGroup.value.projects!,
-  //     extracurricularActivities: this.studentProfileFormGroup.value.extracurricularActivities!,
-  //     languages: this.studentProfileFormGroup.value.languages!,
-  //     careerObjectives: this.studentProfileFormGroup.value.careerObjectives!,
-  //     references: this.studentProfileFormGroup.value.references!,
-  //     hobbies: this.studentProfileFormGroup.value.hobbies!,
-  //     achievements: this.studentProfileFormGroup.value.achievements!
-  //   }
-  // }
-
   editProfile() {
     const values = this.studentProfileFormGroup.value;
 
