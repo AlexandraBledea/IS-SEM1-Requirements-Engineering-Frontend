@@ -10,22 +10,47 @@ import { InternshipApplicationsComponent } from './student/internship-applicatio
 import { ApplicationDetailsComponent } from './student/application-details/application-details.component';
 import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home.component';
 import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
+import { AuthguardStudentService } from './authguards/authguard-student.service';
+import { AuthguardService } from './authguards/authguard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'apply-to-internship', component: ApplyInternshipComponent },
+  {
+    path: 'apply-to-internship',
+    component: ApplyInternshipComponent,
+    canActivate: [AuthguardService, AuthguardStudentService],
+  },
   {
     path: 'student-internship-announcement',
     component: StudentInternshipDetailsComponent,
+    canActivate: [AuthguardService, AuthguardStudentService],
   },
-  { path: 'student-applications', component: InternshipApplicationsComponent },
-  { path: 'student-application', component: ApplicationDetailsComponent },
-  { path: 'student-profile', component: ProfilePageComponent },
-  { path: 'student-home', component: StudentHomeComponent },
+  {
+    path: 'student-applications',
+    component: InternshipApplicationsComponent,
+    canActivate: [AuthguardService, AuthguardStudentService],
+  },
+  {
+    path: 'student-application',
+    component: ApplicationDetailsComponent,
+    canActivate: [AuthguardService, AuthguardStudentService],
+  },
+  {
+    path: 'student-profile',
+    component: ProfilePageComponent,
+    canActivate: [AuthguardService, AuthguardStudentService],
+  },
+  {
+    path: 'student-home',
+    component: StudentHomeComponent,
+    canActivate: [AuthguardService, AuthguardStudentService],
+  },
   { path: 'recruiter-home', component: RecruiterHomeComponent },
   { path: 'recruiter-profile', component: RecruiterProfilePageComponent },
   { path: 'login', component: LoginPanelComponent },
   { path: 'register', component: RegisterPanelComponent },
+  // {path: 'login', component: LoginPanelComponent, canActivate: [AuthguardLoginService]},
+  // {path: 'register', component: RegisterPanelComponent, canActivate: [AuthguardLoginService]},
   { path: '**', redirectTo: 'login' },
 ];
 

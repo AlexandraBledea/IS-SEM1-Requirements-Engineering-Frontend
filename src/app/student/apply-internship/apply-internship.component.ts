@@ -7,6 +7,7 @@ import { parseJwt } from '../../utils/JWTParser';
 import { StudentService } from 'src/app/service/student.service';
 import { CookieService } from 'ngx-cookie-service';
 import { CommunicationService } from 'src/app/service/communication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apply-internship',
@@ -19,7 +20,11 @@ export class ApplyInternshipComponent implements OnInit {
   student: Student | undefined;
   internship: Internship | undefined;
 
-  formGroupT = this.formBuilder.group({
+  showCreateAccountErrorMessage = false;
+  showCreateAccountSuccessfulMessage = false;
+  errorMessage = '';
+
+  coverLetterFormGroup = this.formBuilder.group({
     coverLetter: ['', Validators.required],
   });
 
@@ -28,6 +33,7 @@ export class ApplyInternshipComponent implements OnInit {
     private cookieService: CookieService,
     private communicationService: CommunicationService,
     private studentService: StudentService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -76,18 +82,40 @@ export class ApplyInternshipComponent implements OnInit {
   apply() {
     const application: Application = {
       id: Math.floor(Math.random() * 100000),
-      coverLetter: this.formGroupT.value.coverLetter!,
+      coverLetter: this.coverLetterFormGroup.value.coverLetter!,
       cv: this.file1,
       others: this.file2,
       student: this.student!,
       internship: this.internship!,
     };
+
     this.studentService.createApplication(application).subscribe({
       next: (result: any) => {
-        console.log(result);
+        const response = JSON.stringify(result);
+
+        if (response === '"Application created successfully!"') {
+          this.showCreateAccountSuccessfulMessage = true;
+        } else if (response === '"The application already exists!"') {
+          this.errorMessage = 'The application already exists!';
+          this.showCreateAccountErrorMessage = true;
+        } else {
+          this.errorMessage = response;
+          this.showCreateAccountErrorMessage = true;
+        }
       },
     });
   }
 
-  cancel() {}
+  resetWarnings() {
+    this.showCreateAccountErrorMessage = false;
+    this.showCreateAccountSuccessfulMessage = false;
+  }
+
+  cancel() {
+    this.router.navigate(['/student-home']);
+  }
+
+  isEnabled() {
+    return !!(this.coverLetterFormGroup.valid && this.file1);
+  }
 }

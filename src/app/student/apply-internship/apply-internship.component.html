@@ -5,10 +5,42 @@
     <div class="main-container">
       <mat-card class="application-card">
         <div class="title-container">
-          <h2>Application</h2>
+          <h2 class="title-text">Application</h2>
         </div>
 
-        <form [formGroup]="formGroupT" class="cover-letter-form">
+        <div class="upload-documents-container">
+          <div class="documents-container">
+            <p class="paragraph-text">
+              <span class="title-span">Company Name: </span>
+              {{ internship!.company.name }}
+            </p>
+            <br />
+          </div>
+
+          <div class="documents-container">
+            <p class="paragraph-text">
+              <span class="title-span">Job Title: </span>
+              {{ internship!.jobTitle }}
+            </p>
+            <br />
+          </div>
+
+          <div class="documents-container">
+            <p class="paragraph-text">
+              <span class="title-span">Job Position: </span>
+              {{ internship!.position }}
+            </p>
+            <br />
+          </div>
+        </div>
+
+        <form
+          tabindex="0"
+          (click)="resetWarnings()"
+          (keyup.down)="resetWarnings()"
+          [formGroup]="coverLetterFormGroup"
+          class="cover-letter-form"
+        >
           <div class="other-information-container">
             <mat-form-field
               class="cover_letter"
@@ -16,20 +48,55 @@
               color="primary"
             >
               <mat-label>Cover letter</mat-label>
-              <textarea matInput formControlName="coverLetter"> </textarea>
+              <textarea
+                style="height: 240px"
+                class="text-area-cover-letter"
+                matInput
+                formControlName="coverLetter"
+              >
+              </textarea>
             </mat-form-field>
             <br />
           </div>
         </form>
 
-        <div class="documents-container">
-          <!-- <label>Doc1</label> -->
-          <input type="file" #file1 (change)="onFile1Selected($event)" />
-          <br />
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">
+              Please upload in "Other files" a single PDF file containing all
+              the other relevant diplomas, certificates, results you have!
+            </p>
+          </div>
+        </div>
 
-          <!-- <label>Doc2</label> -->
-          <input type="file" #file2 (change)="onFile2Selected($event)" />
-          <br />
+        <div class="upload-documents-container">
+          <div class="documents-container">
+            <p>
+              <span class="title-span">CV</span>
+            </p>
+            <input
+              (click)="resetWarnings()"
+              class="upload-container"
+              type="file"
+              #file1
+              (change)="onFile1Selected($event)"
+            />
+            <br />
+          </div>
+
+          <div class="documents-container">
+            <p>
+              <span class="title-span">Other files</span>
+            </p>
+            <input
+              (click)="resetWarnings()"
+              class="upload-container"
+              type="file"
+              #file2
+              (change)="onFile2Selected($event)"
+            />
+            <br />
+          </div>
         </div>
 
         <div class="save-button-container">
@@ -44,6 +111,7 @@
             Cancel
           </button>
           <button
+            [disabled]="!isEnabled()"
             class="info-button"
             (click)="apply()"
             mat-raised-button
@@ -55,6 +123,15 @@
           </button>
           <br />
         </div>
+
+        <mat-card class="password-hint" *ngIf="showCreateAccountErrorMessage">{{
+          errorMessage
+        }}</mat-card>
+        <mat-card
+          class="password-hint-green"
+          *ngIf="showCreateAccountSuccessfulMessage"
+          >Application created successfully!</mat-card
+        >
       </mat-card>
     </div>
   </div>
