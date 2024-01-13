@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Internship } from '../data-types/Internship';
 import { Filter } from '../data-types/Filter';
 import { Student } from '../data-types/Student';
+import { Application } from '../data-types/Application';
 
 const URL_BASE = 'http://localhost:8090/student';
 const GET_INTERNSHIP_ANNOUNCEMENTS =
@@ -14,6 +15,7 @@ const SEARCH_INTERNSHIP_ANNOUNCEMENTS =
   URL_BASE + '/search-internship-announcements';
 const GET_USER = URL_BASE + '/get-student';
 const EDIT_STUDENT = URL_BASE + '/edit-student';
+const APPLY_INTERNSHIP = URL_BASE + '/apply-for-internship';
 
 @Injectable({
   providedIn: 'root',
@@ -67,5 +69,11 @@ export class StudentService {
 
   public editStudent(student: Student): any {
     return this.httpClient.put(EDIT_STUDENT, student, { responseType: 'text' });
+  }
+
+  public createApplication(application: Application): any {
+    return this.httpClient.post(APPLY_INTERNSHIP, application, {
+      responseType: 'text',
+    });
   }
 }

@@ -8,7 +8,7 @@
           <h2>Application</h2>
         </div>
 
-        <form class="cover-letter-form">
+        <form [formGroup]="formGroupT" class="cover-letter-form">
           <div class="other-information-container">
             <mat-form-field
               class="cover_letter"
@@ -16,7 +16,7 @@
               color="primary"
             >
               <mat-label>Cover letter</mat-label>
-              <textarea matInput> </textarea>
+              <textarea matInput formControlName="coverLetter"> </textarea>
             </mat-form-field>
             <br />
           </div>
