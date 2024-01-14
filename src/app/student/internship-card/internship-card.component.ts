@@ -13,20 +13,30 @@ import { parseJwt } from 'src/app/utils/JWTParser';
 export class InternshipCardComponent {
   @Input() internship!: Internship;
 
+  isStudent: boolean = true;
+
   constructor(
     private router: Router,
     private communicationService: CommunicationService,
     private cookieService: CookieService,
-  ) {}
-
-  displayDetails() {
+  ) {
     const token = this.cookieService.get('Token');
     const jwt = parseJwt(token);
-    console.log(jwt);
 
+    if (jwt['role'] != 'STUDENT') {
+      this.isStudent = false;
+    }
+  }
+
+  displayDetails() {
     this.communicationService.setDetailsCompany(this.internship);
-    if (jwt['role'] == 'STUDENT')
+    if (this.isStudent)
       this.router.navigate(['/student-internship-announcement']);
     else this.router.navigate(['/recruiter-internship-announcement']);
+  }
+
+  viewInternships() {
+    this.communicationService.setDetailsCompany(this.internship);
+    this.router.navigate(['/recruiter-view-applications']);
   }
 }

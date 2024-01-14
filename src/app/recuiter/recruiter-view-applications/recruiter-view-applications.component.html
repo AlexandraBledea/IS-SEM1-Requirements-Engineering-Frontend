@@ -1,0 +1,11 @@
+<app-recruiter-nav-bar></app-recruiter-nav-bar>
+<body>
+  <div class="content-container">
+    <main>
+      <app-application-card
+        *ngFor="let application of applications"
+        [application]="application"
+      ></app-application-card>
+    </main>
+  </div>
+</body>

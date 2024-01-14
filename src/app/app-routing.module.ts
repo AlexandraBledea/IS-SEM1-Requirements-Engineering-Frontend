@@ -18,6 +18,7 @@ import { RecruiterEditAnnouncementComponent } from './recuiter/recruiter-edit-an
 import { RecruiterApplicationsComponent } from './recuiter/recruiter-applications/recruiter-applications.component';
 import { AuthguardLoginService } from './authguards/authguard-login.service';
 import { AuthguardRecruiterService } from './authguards/authguard-recruiter.service';
+import { RecruiterViewApplicationsComponent } from './recuiter/recruiter-view-applications/recruiter-view-applications.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -49,6 +50,11 @@ const routes: Routes = [
   {
     path: 'recruiter-applications',
     component: RecruiterApplicationsComponent,
+    canActivate: [AuthguardRecruiterService],
+  },
+  {
+    path: 'recruiter-view-applications',
+    component: RecruiterViewApplicationsComponent,
     canActivate: [AuthguardRecruiterService],
   },
   {

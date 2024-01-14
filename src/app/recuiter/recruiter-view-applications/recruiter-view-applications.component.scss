@@ -1,0 +1,73 @@
+//.student-home-sidenav {
+//  height: 100%; /* Full-height: remove this if you want "auto" height */
+//  width: 250px; /* Set the width of the sidebar */
+//  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+//  z-index: 1; /* Stay on top */
+//  top:64px;
+//  left: 0;
+//  background-color: #ffffff; /* Black */
+//  overflow-x: hidden; /* Disable horizontal scroll */
+//  padding-top: 20px;
+//}
+
+//.student-home-sidenav {
+//  border-right:  1px solid #ededed;
+//  background: #36c;
+//  flex: 1 0 10%;
+//  padding: 1rem;
+//}
+//
+//.content-container{
+//  display: flex;
+//  height: 100%;
+//}
+//
+//.main-content{
+//  //flex: 1;
+//}
+
+.content-container{
+  display: flex;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+main {
+  overflow-y: auto;
+  margin-top:64px;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.student-home-sidenav {
+  border-right:  1px solid #ededed;
+  background-color: #ffffff;
+  width: 330px;
+  padding-top: 64px;
+}
+
+.search-field, .filter-field{
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 290px;
+}
+
+.search-button, .filter-button{
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 50px;
+  width: 290px;
+}
+
+
+//.search-label{
+//  font-size: 14px;
+//}
+//
+//.search-input{
+//  transform: scale(0.95);
+//}

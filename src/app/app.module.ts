@@ -40,6 +40,7 @@ import { RecruiterCreateAnnouncementComponent } from './recuiter/recruiter-creat
 import { RecruiterEditAnnouncementComponent } from './recuiter/recruiter-edit-announcement/recruiter-edit-announcement.component';
 import { RecruiterApplicationsComponent } from './recuiter/recruiter-applications/recruiter-applications.component';
 import { ConfirmationDialogBoxComponent } from './confirmation-dialog-box/confirmation-dialog-box.component';
+import { RecruiterViewApplicationsComponent } from './recuiter/recruiter-view-applications/recruiter-view-applications.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ConfirmationDialogBoxComponent } from './confirmation-dialog-box/confir
     RecruiterEditAnnouncementComponent,
     RecruiterApplicationsComponent,
     ConfirmationDialogBoxComponent,
+    RecruiterViewApplicationsComponent,
   ],
   imports: [
     BrowserModule,

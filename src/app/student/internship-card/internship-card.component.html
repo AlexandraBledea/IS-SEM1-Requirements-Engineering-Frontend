@@ -45,6 +45,15 @@
       >
         Details
       </button>
+      <button
+        *ngIf="!isStudent"
+        id="details-button"
+        mat-flat-button
+        color="accent"
+        (click)="viewInternships()"
+      >
+        View Internships
+      </button>
     </div>
   </div>
 </mat-card>
