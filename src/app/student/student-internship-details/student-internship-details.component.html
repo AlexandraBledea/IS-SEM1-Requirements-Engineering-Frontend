@@ -63,11 +63,13 @@
           </div>
         </div>
 
-        <div class="long-info-container">
-          <p class="title-span">Requirements:</p>
-          <p>
-            {{ this.internship.requirements }}
-          </p>
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">Requirements:</p>
+            <p>
+              {{ this.internship.requirements }}
+            </p>
+          </div>
         </div>
 
         <div class="long-info-wrapper-container">
@@ -110,6 +112,13 @@
           </button>
           <br />
         </div>
+
+        <br />
+
+        <mat-card class="password-hint" *ngIf="showCreateAccountErrorMessage">{{
+          errorMessage
+        }}</mat-card>
+        <br />
       </mat-card>
     </div>
   </div>

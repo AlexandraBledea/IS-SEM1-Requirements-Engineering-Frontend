@@ -4,6 +4,8 @@ import { Internship } from '../../data-types/Internship';
 import { CommunicationService } from '../../service/communication.service';
 import { CookieService } from 'ngx-cookie-service';
 import { parseJwt } from 'src/app/utils/JWTParser';
+import { StudentService } from '../../service/student.service';
+import { Student } from '../../data-types/Student';
 
 @Component({
   selector: 'app-internship-card',
@@ -14,11 +16,13 @@ export class InternshipCardComponent {
   @Input() internship!: Internship;
 
   isStudent: boolean = true;
+  student?: Student;
 
   constructor(
     private router: Router,
     private communicationService: CommunicationService,
     private cookieService: CookieService,
+    private studentService: StudentService,
   ) {
     const token = this.cookieService.get('Token');
     const jwt = parseJwt(token);
@@ -30,9 +34,9 @@ export class InternshipCardComponent {
 
   displayDetails() {
     this.communicationService.setDetailsCompany(this.internship);
-    if (this.isStudent)
+    if (this.isStudent) {
       this.router.navigate(['/student-internship-announcement']);
-    else this.router.navigate(['/recruiter-internship-announcement']);
+    } else this.router.navigate(['/recruiter-internship-announcement']);
   }
 
   viewInternships() {

@@ -1,3 +1,21 @@
+
+@use 'src/variables' as v;
+
+.password-hint {
+  width: 360px;
+  height: 50px;
+  font-size: 12px;
+  color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: v.$red;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .title-span {
   font-weight: bold;
   font-size: 18px;
@@ -25,6 +43,14 @@ body {
   padding-bottom: 100px;
 }
 
+.long-info-wrapper-container{
+  display: flex;
+}
+
+.long-info-container{
+  padding-left: 40px;
+  padding-right: 60px;
+}
 
 .content-container{
   overflow-y: auto;
@@ -42,13 +68,22 @@ body {
   display: flex;
 }
 
-.long-info-wrapper-container{
-  display: flex;
+
+.container-title-documents{
+  padding-left: 40px;
+}
+
+.container-buttons{
+
 }
 
 .title-container{
   display: flex;
   justify-content: center;
+}
+
+.title-container-job{
+  padding-left: 40px;
 }
 
 .paragraph-container{
@@ -57,10 +92,6 @@ body {
   width: 33%;
 }
 
-.long-info-container{
-  padding-left: 40px;
-  padding-right: 60px;
-}
 
 .save-button-container{
   display: flex;
@@ -71,6 +102,14 @@ body {
   margin-bottom: 40px;
   margin-left: 300px;
   margin-right: 300px;
+  width: 160px;
+  height: 60px;
+}
+
+.download-button {
+  margin-bottom: 40px;
+  margin-left: 60px;
+  //margin-right: 300px;
   width: 160px;
   height: 60px;
 }

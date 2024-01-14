@@ -13,6 +13,8 @@ import { parseJwt } from 'src/app/utils/JWTParser';
 export class ApplicationDetailsComponent {
   application: Application;
   isStudent: boolean = true;
+  showCreateAccountErrorMessage = false;
+  errorMessage = '';
 
   constructor(
     private communicationService: CommunicationService,
@@ -29,6 +31,10 @@ export class ApplicationDetailsComponent {
     }
   }
 
+  resetWarnings() {
+    this.showCreateAccountErrorMessage = false;
+  }
+
   downloadCV() {
     const link = document.createElement('a');
     link.setAttribute('target', '_blank');
@@ -40,6 +46,15 @@ export class ApplicationDetailsComponent {
   }
 
   downloadOthers() {
+    if (this.application.others === '') {
+      this.errorMessage = 'There is no PDF uploaded in Others field';
+      this.showCreateAccountErrorMessage = true;
+      setTimeout(() => {
+        this.showCreateAccountErrorMessage = false;
+      }, 2000);
+      return;
+    }
+
     const link = document.createElement('a');
     link.setAttribute('target', '_blank');
     link.setAttribute('href', this.application.others);

@@ -42,17 +42,21 @@ export class RecruiterApplicationDetailsComponent {
               response === '"Internship announcement deleted successfully!"'
             ) {
               this.showCreateAccountSuccessfulMessage = true;
+              setTimeout(() => {
+                this.router.navigate(['/recruiter-home']);
+              }, 500);
             } else if (
               response === '"Internship was not deleted! It has applications!"'
             ) {
               this.errorMessage =
-                'Internship was not deleted! It has applications!';
+                'Internship was not deleted! It has active applications!';
               this.showCreateAccountErrorMessage = true;
+              return;
             } else {
               this.errorMessage = response;
               this.showCreateAccountErrorMessage = true;
+              return;
             }
-            this.router.navigate(['/recruiter-home']);
           },
         });
       }
