@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
 import { Application } from 'src/app/data-types/Application';
 import { CommunicationService } from 'src/app/service/communication.service';
@@ -16,6 +17,7 @@ export class ApplicationDetailsComponent {
   constructor(
     private communicationService: CommunicationService,
     private cookieService: CookieService,
+    private domSanitizer: DomSanitizer,
   ) {
     this.application = communicationService.getDetailsApplication();
 
@@ -25,5 +27,25 @@ export class ApplicationDetailsComponent {
     if (jwt['role'] == 'RECRUITER') {
       this.isStudent = false;
     }
+  }
+
+  downloadCV() {
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', this.application.cv);
+    link.setAttribute('download', `cv.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
+  downloadOthers() {
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', this.application.others);
+    link.setAttribute('download', `others.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 }
