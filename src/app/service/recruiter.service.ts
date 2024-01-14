@@ -8,6 +8,7 @@ const GET_ALL_APPLICATIONS = URL_BASE + '/list-all-applications';
 const CREATE_INTERNSHIP = URL_BASE + '/create-internship-announcement';
 const UPDATE_INTERNSHIP = URL_BASE + '/edit-internship-announcement';
 const DELETE_INTERNSHIP = URL_BASE + '/delete-internship-announcement';
+const GET_INTERNSHIPS = URL_BASE + '/list-internship-announcements';
 
 @Injectable({
   providedIn: 'root',
@@ -40,5 +41,9 @@ export class RecruiterService {
       `${DELETE_INTERNSHIP}?internshipId=${internship.id}`,
       { responseType: 'text' },
     );
+  }
+
+  public getInternshipAnnouncements(id: number) {
+    return this.httpClient.get(`${GET_INTERNSHIPS}?recruiterId=${id}`);
   }
 }

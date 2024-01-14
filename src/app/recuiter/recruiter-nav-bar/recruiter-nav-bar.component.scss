@@ -5,7 +5,7 @@
     background-color: #947dcc;
     cursor: pointer;
     height: 45px;
-    width: 160px;
+    width: 180px;
   }
 
   &-container-right button{
@@ -15,11 +15,12 @@
 
 }
 
-
 .left-side-buttons{
-  width: 520px;
+  width: 600px;
   display: flex;
   justify-content: space-between;
+  padding-left: 20px;
+
 }
 
 .topnav {

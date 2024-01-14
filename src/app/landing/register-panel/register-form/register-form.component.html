@@ -81,15 +81,6 @@
     </mat-form-field>
     <br />
 
-    <mat-card class="password-hint" *ngIf="showCreateAccountErrorMessage">{{
-      errorMessage
-    }}</mat-card>
-    <mat-card
-      class="password-hint-green"
-      *ngIf="showCreateAccountSuccessfulMessage"
-      >Account created successfully!</mat-card
-    >
-
     <div class="div-role-checkbox">
       <mat-checkbox
         color="primary"
@@ -124,6 +115,17 @@
     <button mat-raised-button color="accent" type="submit" id="form-button">
       Create account
     </button>
+
+    <br />
+    <br />
+    <mat-card class="password-hint" *ngIf="showCreateAccountErrorMessage">{{
+      errorMessage
+    }}</mat-card>
+    <mat-card
+      class="password-hint-green"
+      *ngIf="showCreateAccountSuccessfulMessage"
+      >Account created successfully!</mat-card
+    >
 
     <br /><br />
   </form>
