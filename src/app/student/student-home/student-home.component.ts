@@ -59,7 +59,7 @@ export class StudentHomeComponent {
   ];
 
   durations: DurationFilter[] = [
-    { lowerBound: 2, upperBound: 4, text: '2-4 weeks' },
+    { lowerBound: 1, upperBound: 4, text: '2-4 weeks' },
     { lowerBound: 4, upperBound: 8, text: '4-8 weeks' },
     { lowerBound: 8, upperBound: 12, text: '8-12 weeks' },
     { lowerBound: 12, upperBound: 999, text: 'more than 12 weeks' },

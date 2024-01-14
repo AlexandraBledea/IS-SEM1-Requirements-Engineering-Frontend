@@ -11,14 +11,23 @@ import { parseJwt } from 'src/app/utils/JWTParser';
   styleUrls: ['./recruiter-create-announcement.component.scss'],
 })
 export class RecruiterCreateAnnouncementComponent implements OnInit {
-  studentProfileFormGroup = this.formBuilder.group({
+  internshipAnnouncementFormGroup = this.formBuilder.group({
     jobTitle: ['', Validators.required],
-    jobPosition: ['', Validators.required],
+    jobPosition: ['', [Validators.required]],
     industry: ['', [Validators.required]],
     location: ['', [Validators.required]],
-    salary: ['', Validators.required],
-    duration: ['', Validators.required],
-    availablePositions: ['', Validators.required],
+    salary: [
+      '',
+      [Validators.required, Validators.pattern(/^(?:[1-9]\d{3,5}|1000000)$/)],
+    ],
+    duration: [
+      '',
+      [Validators.required, Validators.pattern(/^(?:[1-9]\d{0,5}|1000000)$/)],
+    ],
+    availablePositions: [
+      '',
+      [Validators.required, Validators.pattern(/^(?:[1-9]\d{0,5}|1000000)$/)],
+    ],
     deadline: ['', Validators.required],
     jobDescription: ['', Validators.required],
     requirements: ['', Validators.required],
@@ -26,6 +35,47 @@ export class RecruiterCreateAnnouncementComponent implements OnInit {
     process: ['', Validators.required],
     benefits: ['', Validators.required],
   });
+
+  industries: string[] = [
+    'Information Technology',
+    'Marketing and Advertising',
+    'Data Science and Analytics',
+    'Customer Relationship Management',
+    'Human Resources and Management',
+    'Finance and Investment',
+    'Healthcare and Pharmaceuticals',
+    'Education and E-learning',
+    'Retail and E-commerce',
+    'Telecommunications',
+    'Media and Entertainment',
+    'Automotive and Transportation',
+    'Real Estate and Property Management',
+    'Hospitality and Tourism',
+    'Manufacturing and Engineering',
+    'Energy and Utilities',
+    'Environmental Services',
+    'Agriculture and Farming',
+    'Fashion and Apparel',
+    'Sports and Recreation',
+  ];
+
+  locations: string[] = [
+    'Bucuresti',
+    'Cluj-Napoca',
+    'Timișoara',
+    'Iași',
+    'Constanța',
+    'Craiova',
+    'Brașov',
+    'Galați',
+    'Ploiești',
+    'Oradea',
+    'Brăila',
+    'Arad',
+    'Pitești',
+    'Sibiu',
+    'Bacău',
+  ];
 
   showCreateAccountErrorMessage = false;
   showCreateAccountSuccessfulMessage = false;
@@ -53,7 +103,7 @@ export class RecruiterCreateAnnouncementComponent implements OnInit {
   }
 
   createInternship() {
-    const values = this.studentProfileFormGroup.value;
+    const values = this.internshipAnnouncementFormGroup.value;
 
     const internship = {
       id: null,
@@ -79,58 +129,12 @@ export class RecruiterCreateAnnouncementComponent implements OnInit {
 
         if (response === '"Internship announcement created successfully!"') {
           this.showCreateAccountSuccessfulMessage = true;
-          this.router.navigate(['recruiter-home']);
         } else {
           this.errorMessage = response;
           this.showCreateAccountErrorMessage = true;
         }
       },
     });
-
-    // const modifiedUser: User = {
-    //   id: this.student!.id,
-    //   forename: values.forename!,
-    //   surname: values.surname!,
-    //   phoneNumber: values.phoneNumber!,
-    //   email: values.email!,
-    //   role: Role.STUDENT,
-    //   companyName: undefined,
-    // };
-
-    // const modifiedStudent: Student = {
-    //   id: this.student!.id,
-    //   user: modifiedUser,
-    //   age: parseInt(values.age!),
-    //   location: values.location!,
-    //   personalWebsite: values.personalWebsite!,
-    //   currentInstitution: values.currentInstitution!,
-    //   studyProgram: values.studyProgram!,
-    //   relevantCoursework: values.relevantCoursework!,
-    //   gpa: values.gpa!,
-    //   pastExperience: values.pastExperience!,
-    //   skills: values.skills!,
-    //   projects: values.projects!,
-    //   extracurricularActivities: values.extracurricularActivities!,
-    //   languages: values.languages!,
-    //   careerObjectives: values.careerObjectives!,
-    //   references: values.references!,
-    //   hobbies: values.hobbies!,
-    //   achievements: values.achievements!,
-    // };
-
-    // this.studentService.editStudent(modifiedStudent).subscribe({
-    //   next: (result: any) => {
-    //     const response = JSON.stringify(result);
-
-    //     if (response === '"Student updated successfully!"') {
-    //       this.showCreateAccountSuccessfulMessage = true;
-    //       this.loadStudent();
-    //     } else {
-    //       this.errorMessage = response;
-    //       this.showCreateAccountErrorMessage = true;
-    //     }
-    //   },
-    // });
   }
 
   resetWarnings() {

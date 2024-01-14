@@ -1,0 +1,16 @@
+<div class="confirmationContainer">
+  <div class="headline-container" mat-dialog-content>
+    {{ this.confirmationMessage }}
+  </div>
+
+  <div class="buttons-container" mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">
+      <mat-icon>cancel</mat-icon>
+      Cancel
+    </button>
+    <button mat-button (click)="onYesClick()">
+      <mat-icon>check</mat-icon>
+      Yes
+    </button>
+  </div>
+</div>

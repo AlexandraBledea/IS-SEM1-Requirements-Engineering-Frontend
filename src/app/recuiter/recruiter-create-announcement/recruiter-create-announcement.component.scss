@@ -44,26 +44,24 @@ body {
   justify-content: space-evenly;
 }
 
-.email, .personal_website{
+.jobTitle, .salary, .jobPosition, .duration, .industry, .location{
   width: 450px;
 }
 
-.surname, .forename, .age, .phone_number{
-  width: 350px;
-}
 
 .other-information-container{
   display: flex;
   justify-content: space-evenly;
 }
 
-.location, .study_program, .relevant_coursework, .gpa, .past_experience, .achievements, .skills,
-.projects, .extracurricular_activities, .languages, .career_objectives, .references, .hobbies
+.deadline, .availablePositions, .requirements, .schedule, .process, .benefits
 {
   width: 677px;
 }
 
-.current_institution {
+.jobDescription {
+  padding-left: 72px;
+  padding-right: 145px;
   width: 100%
 }
 

@@ -121,6 +121,18 @@
           </button>
           <br />
         </div>
+        <br />
+        <br />
+        <mat-card class="password-hint" *ngIf="showCreateAccountErrorMessage">{{
+          errorMessage
+        }}</mat-card>
+        <mat-card
+          class="password-hint-green"
+          *ngIf="showCreateAccountSuccessfulMessage"
+          >Internship deleted successfully!</mat-card
+        >
+        <br />
+        <br />
       </mat-card>
     </div>
   </div>

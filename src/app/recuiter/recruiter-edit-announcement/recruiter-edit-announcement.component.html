@@ -4,14 +4,14 @@
     <div class="main-container">
       <mat-card class="personal-info-card">
         <form
-          [formGroup]="studentProfileFormGroup"
+          [formGroup]="internshipAnnouncementFormGroup"
           (click)="resetWarnings()"
           (keyup.down)="resetWarnings()"
           tabindex="0"
         >
           <div class="personal-information-container">
             <mat-form-field
-              class="forename"
+              class="jobTitle"
               appearance="outline"
               color="primary"
             >
@@ -20,18 +20,14 @@
             </mat-form-field>
             <br />
 
-            <mat-form-field
-              class="forename"
-              appearance="outline"
-              color="primary"
-            >
+            <mat-form-field class="salary" appearance="outline" color="primary">
               <mat-label>Salary</mat-label>
               <input matInput formControlName="salary" />
             </mat-form-field>
             <br />
 
             <mat-form-field
-              class="surname"
+              class="jobPosition"
               appearance="outline"
               color="primary"
             >
@@ -42,28 +38,38 @@
           </div>
 
           <div class="personal-information-container">
-            <mat-form-field
-              class="surname"
-              appearance="outline"
-              color="primary"
-            >
-              <mat-label>Industry</mat-label>
-              <input matInput formControlName="industry" />
+            <mat-form-field class="filter-field industry">
+              <mat-label class="filter-label">Industry</mat-label>
+              <mat-select class="filter-select" formControlName="industry">
+                <mat-option [value]="undefined">No industry</mat-option>
+                <mat-option
+                  *ngFor="let industry of industries"
+                  [value]="industry"
+                  >{{ industry }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="filter-field location">
+              <mat-label class="filter-label">Location</mat-label>
+              <mat-select class="filter-select" formControlName="location">
+                <mat-option [value]="undefined">No location</mat-option>
+                <mat-option
+                  *ngFor="let location of locations"
+                  [value]="location"
+                  >{{ location }}</mat-option
+                >
+              </mat-select>
             </mat-form-field>
             <br />
 
             <mat-form-field
-              class="phone_number"
+              class="duration"
               appearance="outline"
               color="primary"
             >
-              <mat-label>Location</mat-label>
-              <input matInput formControlName="location" />
-            </mat-form-field>
-            <br />
-
-            <mat-form-field class="age" appearance="outline" color="primary">
-              <mat-label>Duration</mat-label>
+              <mat-label>Duration in no of weeks</mat-label>
               <input matInput formControlName="duration" />
             </mat-form-field>
             <br />
@@ -71,7 +77,7 @@
 
           <div class="other-information-container">
             <mat-form-field
-              class="location"
+              class="deadline"
               appearance="outline"
               color="primary"
             >
@@ -81,7 +87,7 @@
             <br />
 
             <mat-form-field
-              class="location"
+              class="availablePositions"
               appearance="outline"
               color="primary"
             >
@@ -96,7 +102,7 @@
 
           <div class="other-information-container">
             <mat-form-field
-              class="study_program"
+              class="requirements"
               appearance="outline"
               color="primary"
             >
@@ -106,7 +112,7 @@
             <br />
 
             <mat-form-field
-              class="relevant_coursework"
+              class="schedule"
               appearance="outline"
               color="primary"
             >
@@ -117,14 +123,18 @@
           </div>
 
           <div class="other-information-container">
-            <mat-form-field class="gpa" appearance="outline" color="primary">
+            <mat-form-field
+              class="process"
+              appearance="outline"
+              color="primary"
+            >
               <mat-label>Process</mat-label>
               <textarea matInput formControlName="process"> </textarea>
             </mat-form-field>
             <br />
 
             <mat-form-field
-              class="past_experience"
+              class="benefits"
               appearance="outline"
               color="primary"
             >
@@ -136,7 +146,7 @@
 
           <div class="other-information-container">
             <mat-form-field
-              class="current_institution"
+              class="jobDescription"
               appearance="outline"
               color="primary"
             >
@@ -158,7 +168,7 @@
             </button>
             <button
               class="info-button"
-              [disabled]="!studentProfileFormGroup.valid"
+              [disabled]="!internshipAnnouncementFormGroup.valid"
               (click)="editInternship()"
               mat-raised-button
               color="accent"
@@ -177,7 +187,7 @@
           <mat-card
             class="password-hint-green"
             *ngIf="showCreateAccountSuccessfulMessage"
-            >Announcement created successfully!</mat-card
+            >Announcement edited successfully!</mat-card
           >
 
           <br /><br />

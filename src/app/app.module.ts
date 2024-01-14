@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +39,7 @@ import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page
 import { RecruiterCreateAnnouncementComponent } from './recuiter/recruiter-create-announcement/recruiter-create-announcement.component';
 import { RecruiterEditAnnouncementComponent } from './recuiter/recruiter-edit-announcement/recruiter-edit-announcement.component';
 import { RecruiterApplicationsComponent } from './recuiter/recruiter-applications/recruiter-applications.component';
+import { ConfirmationDialogBoxComponent } from './confirmation-dialog-box/confirmation-dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { RecruiterApplicationsComponent } from './recuiter/recruiter-application
     RecruiterCreateAnnouncementComponent,
     RecruiterEditAnnouncementComponent,
     RecruiterApplicationsComponent,
+    ConfirmationDialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +86,7 @@ import { RecruiterApplicationsComponent } from './recuiter/recruiter-application
     FormsModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatDialogModule,
   ],
   providers: [
     {
