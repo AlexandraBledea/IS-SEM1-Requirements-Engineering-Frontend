@@ -12,6 +12,10 @@ import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home
 import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
 import { AuthguardStudentService } from './authguards/authguard-student.service';
 import { AuthguardService } from './authguards/authguard.service';
+import { RecruiterApplicationDetailsComponent } from './recuiter/recruiter-application-details/recruiter-application-details.component';
+import { RecruiterCreateAnnouncementComponent } from './recuiter/recruiter-create-announcement/recruiter-create-announcement.component';
+import { RecruiterEditAnnouncementComponent } from './recuiter/recruiter-edit-announcement/recruiter-edit-announcement.component';
+import { RecruiterApplicationsComponent } from './recuiter/recruiter-applications/recruiter-applications.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -26,6 +30,19 @@ const routes: Routes = [
     canActivate: [AuthguardService, AuthguardStudentService],
   },
   {
+    path: 'recruiter-internship-announcement',
+    component: RecruiterApplicationDetailsComponent,
+  },
+  {
+    path: 'recruiter-create-announcement',
+    component: RecruiterCreateAnnouncementComponent,
+  },
+  {
+    path: 'recruiter-edit-announcement',
+    component: RecruiterEditAnnouncementComponent,
+  },
+  { path: 'recruiter-applications', component: RecruiterApplicationsComponent },
+  {
     path: 'student-applications',
     component: InternshipApplicationsComponent,
     canActivate: [AuthguardService, AuthguardStudentService],
@@ -33,7 +50,7 @@ const routes: Routes = [
   {
     path: 'student-application',
     component: ApplicationDetailsComponent,
-    canActivate: [AuthguardService, AuthguardStudentService],
+    canActivate: [AuthguardService],
   },
   {
     path: 'student-profile',

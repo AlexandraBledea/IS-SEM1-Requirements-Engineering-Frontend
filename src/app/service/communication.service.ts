@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Internship } from '../data-types/Internship';
+import { Application } from '../data-types/Application';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommunicationService {
   detailsInternship!: Internship;
+  detailsApplication!: Application;
+
   constructor() {}
 
   setDetailsCompany(internship: Internship) {
@@ -14,5 +17,13 @@ export class CommunicationService {
 
   getDetailsCompany() {
     return this.detailsInternship;
+  }
+
+  setDetailsApplication(application: Application) {
+    this.detailsApplication = application;
+  }
+
+  getDetailsApplication() {
+    return this.detailsApplication;
   }
 }

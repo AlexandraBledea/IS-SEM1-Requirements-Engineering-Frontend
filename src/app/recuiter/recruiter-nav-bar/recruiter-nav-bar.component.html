@@ -1,1 +1,39 @@
-<p>recruiter-nav-bar works!</p>
+<header>
+  <mat-toolbar class="topnav">
+    <div class="empty-styling-container"></div>
+    <div class="left-side-buttons">
+      <div class="nav-button-container-left">
+        <button mat-flat-button color="primary" (click)="homePage()">
+          Home
+        </button>
+      </div>
+      <div class="nav-button-container-left">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="createAnnouncementPage()"
+        >
+          Create Accouncement
+        </button>
+      </div>
+      <div class="nav-button-container-left">
+        <button mat-flat-button color="primary" (click)="applicationsPage()">
+          Applications
+        </button>
+      </div>
+    </div>
+    <div class="right-side-buttons">
+      <div class="nav-button-container-right">
+        <button
+          id="log-out"
+          mat-fab
+          color="primary"
+          aria-label="Logout icon button"
+          (click)="logout()"
+        >
+          <mat-icon id="log-out-icon">logout</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+</header>

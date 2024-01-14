@@ -1,0 +1,79 @@
+.title-span {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+p{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #666;
+  font-size: 18px;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.main-container{
+  overflow-y: auto;
+  width: 100%;
+  padding-left: 100px;
+  padding-top:40px;
+  padding-bottom: 100px;
+}
+
+
+.content-container{
+  overflow-y: auto;
+  display: flex;
+  height: 100%;
+  padding-top: 64px;
+}
+
+.internship-info-card{
+  padding-top:30px;
+  margin-right: 100px;
+}
+
+.info-container{
+  display: flex;
+}
+
+.long-info-wrapper-container{
+  display: flex;
+}
+
+.title-container{
+  display: flex;
+  justify-content: center;
+}
+
+.paragraph-container{
+  padding-left: 40px;
+  padding-right: 60px;
+}
+
+.long-info-container{
+  padding-left: 40px;
+  padding-right: 60px;
+}
+
+.save-button-container{
+  display: flex;
+  justify-content: center;
+  margin-left: 280px;
+  margin-right: 280px;
+}
+
+.info-button{
+  margin-bottom: 40px;
+  width: 160px;
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+

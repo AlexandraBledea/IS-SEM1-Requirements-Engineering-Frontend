@@ -16,6 +16,7 @@ const SEARCH_INTERNSHIP_ANNOUNCEMENTS =
 const GET_USER = URL_BASE + '/get-student';
 const EDIT_STUDENT = URL_BASE + '/edit-student';
 const APPLY_INTERNSHIP = URL_BASE + '/apply-for-internship';
+const GET_APPLICATIONS = URL_BASE + '/list-internship-applications';
 
 @Injectable({
   providedIn: 'root',
@@ -75,5 +76,11 @@ export class StudentService {
     return this.httpClient.post(APPLY_INTERNSHIP, application, {
       responseType: 'text',
     });
+  }
+
+  public getApplications(studentId: number): any {
+    return this.httpClient.get<Application[]>(
+      `${GET_APPLICATIONS}?studentId=${studentId}`,
+    );
   }
 }

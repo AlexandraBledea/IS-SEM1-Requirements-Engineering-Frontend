@@ -1,0 +1,188 @@
+<app-recruiter-nav-bar></app-recruiter-nav-bar>
+<body>
+  <div class="content-container">
+    <div class="main-container">
+      <mat-card class="personal-info-card">
+        <form
+          [formGroup]="studentProfileFormGroup"
+          (click)="resetWarnings()"
+          (keyup.down)="resetWarnings()"
+          tabindex="0"
+        >
+          <div class="personal-information-container">
+            <mat-form-field
+              class="forename"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Job Title</mat-label>
+              <input matInput formControlName="jobTitle" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="forename"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Salary</mat-label>
+              <input matInput formControlName="salary" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="surname"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Job Position</mat-label>
+              <input matInput formControlName="jobPosition" />
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="personal-information-container">
+            <mat-form-field
+              class="surname"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Industry</mat-label>
+              <input matInput formControlName="industry" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="phone_number"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Location</mat-label>
+              <input matInput formControlName="location" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="age" appearance="outline" color="primary">
+              <mat-label>Duration</mat-label>
+              <input matInput formControlName="duration" />
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="location"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Deadline</mat-label>
+              <textarea matInput formControlName="deadline"></textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="location"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Available Positions</mat-label>
+              <textarea
+                matInput
+                formControlName="availablePositions"
+              ></textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="study_program"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Requirements</mat-label>
+              <textarea matInput formControlName="requirements"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="relevant_coursework"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Schedule</mat-label>
+              <textarea matInput formControlName="schedule"> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field class="gpa" appearance="outline" color="primary">
+              <mat-label>Process</mat-label>
+              <textarea matInput formControlName="process"> </textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field
+              class="past_experience"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Benefits</mat-label>
+              <textarea matInput formControlName="benefits"> </textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="other-information-container">
+            <mat-form-field
+              class="current_institution"
+              appearance="outline"
+              color="primary"
+            >
+              <mat-label>Job Description</mat-label>
+              <textarea matInput formControlName="jobDescription"></textarea>
+            </mat-form-field>
+            <br />
+          </div>
+
+          <div class="save-button-container">
+            <button
+              class="info-button"
+              mat-raised-button
+              (click)="cancel()"
+              color="accent"
+              type="submit"
+            >
+              Cancel
+            </button>
+            <button
+              class="info-button"
+              [disabled]="!studentProfileFormGroup.valid"
+              (click)="editInternship()"
+              mat-raised-button
+              color="accent"
+              type="submit"
+            >
+              Edit
+            </button>
+            <br />
+          </div>
+
+          <mat-card
+            class="password-hint"
+            *ngIf="showCreateAccountErrorMessage"
+            >{{ errorMessage }}</mat-card
+          >
+          <mat-card
+            class="password-hint-green"
+            *ngIf="showCreateAccountSuccessfulMessage"
+            >Announcement created successfully!</mat-card
+          >
+
+          <br /><br />
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</body>

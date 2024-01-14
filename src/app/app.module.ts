@@ -36,6 +36,9 @@ import { RecruiterHomeComponent } from './recuiter/recruiter-home/recruiter-home
 import { RecruiterNavBarComponent } from './recuiter/recruiter-nav-bar/recruiter-nav-bar.component';
 import { RecruiterApplicationDetailsComponent } from './recuiter/recruiter-application-details/recruiter-application-details.component';
 import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page/recruiter-profile-page.component';
+import { RecruiterCreateAnnouncementComponent } from './recuiter/recruiter-create-announcement/recruiter-create-announcement.component';
+import { RecruiterEditAnnouncementComponent } from './recuiter/recruiter-edit-announcement/recruiter-edit-announcement.component';
+import { RecruiterApplicationsComponent } from './recuiter/recruiter-applications/recruiter-applications.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { RecruiterProfilePageComponent } from './recuiter/recruiter-profile-page
     InternshipApplicationsComponent,
     ApplicationCardComponent,
     ApplicationDetailsComponent,
+    RecruiterCreateAnnouncementComponent,
+    RecruiterEditAnnouncementComponent,
+    RecruiterApplicationsComponent,
   ],
   imports: [
     BrowserModule,

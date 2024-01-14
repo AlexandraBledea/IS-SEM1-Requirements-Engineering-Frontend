@@ -1,38 +1,167 @@
-<app-student-nav-bar></app-student-nav-bar>
+<app-student-nav-bar *ngIf="isStudent"></app-student-nav-bar>
+<app-recruiter-nav-bar *ngIf="!isStudent"></app-recruiter-nav-bar>
 <body>
   <div class="content-container">
     <div class="main-container">
       <mat-card class="internship-info-card">
         <div class="title-container">
-          <p><span class="title-span">Job Title: </span> {{ 'Job Title 1' }}</p>
+          <p>
+            <span class="title-span">Name: </span>
+            {{
+              this.application.student.user.forename +
+                ' ' +
+                this.application.student.user.surname
+            }}
+          </p>
         </div>
 
         <div class="info-container">
           <div class="paragraph-container">
             <p class="info-paragraph">
-              <span class="title-span">Company Name: </span> {{ 'Company 1' }}
+              <span class="title-span">Email: </span>
+              {{ this.application.student.user.email }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Salary: </span> {{ '6000' }}
+              <span class="title-span">Phone Number: </span>
+              {{ this.application.student.user.phoneNumber }}
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Age: </span>
+              {{ this.application.student.age }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Personal website: </span>
+              {{ this.application.student.personalWebsite }}
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Study Program: </span>
+              {{ this.application.student.studyProgram }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Relevant Coursework: </span>
+              {{ this.application.student.relevantCoursework }}
+            </p>
+          </div>
+        </div>
+
+        <div class="info-container">
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">GPA: </span>
+              {{ this.application.student.gpa }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span"> Past Experience </span>
+              {{ this.application.student.pastExperience }}
+            </p>
+          </div>
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Achievements: </span>
+              {{ this.application.student.studyProgram }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Skills: </span>
+              {{ this.application.student.relevantCoursework }}
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Projects: </span>
+              {{ this.application.student.studyProgram }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Extracurricular activities: </span>
+              {{ this.application.student.relevantCoursework }}
+            </p>
+          </div>
+        </div>
+
+        <div class="info-container">
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Languages: </span>
+              {{ this.application.student.gpa }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span"> Career objectives </span>
+              {{ this.application.student.pastExperience }}
+            </p>
+          </div>
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">References: </span>
+              {{ this.application.student.studyProgram }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Hobbies: </span>
+              {{ this.application.student.relevantCoursework }}
+            </p>
+          </div>
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span"> </span>
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span"> </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">Cover Letter:</p>
+            <p>{{ this.application.coverLetter }}</p>
+          </div>
+        </div>
+      </mat-card>
+
+      <mat-card class="internship-info-card">
+        <div class="title-container">
+          <p>
+            <span class="title-span">Job Title: </span>
+            {{ this.application.internship.jobTitle }}
+          </p>
+        </div>
+
+        <div class="info-container">
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Company Name: </span>
+              {{ this.application.internship.company.name }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Salary: </span>
+              {{ this.application.internship.salary }}
             </p>
           </div>
 
           <div class="paragraph-container">
             <p class="info-paragraph">
               <span class="title-span">Job Position: </span>
-              {{ 'Software Developer Junior' }}
+              {{ this.application.internship.position }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Duration: </span> {{ '12 weeks' }}
+              <span class="title-span">Duration: </span>
+              {{ this.application.internship.duration + ' weeks' }}
             </p>
           </div>
 
           <div class="paragraph-container">
             <p class="info-paragraph">
-              <span class="title-span">Industry: </span> {{ 'IT-Software' }}
+              <span class="title-span">Industry: </span>
+              {{ this.application.internship.industry }}
             </p>
             <p class="info-paragraph">
-              <span class="title-span">Location: </span> {{ 'Cluj Napoca' }}
+              <span class="title-span">Location: </span>
+              {{ this.application.internship.location }}
             </p>
           </div>
         </div>
@@ -40,18 +169,7 @@
         <div class="long-info-wrapper-container">
           <div class="long-info-container">
             <p class="title-span">Job Description:</p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
+            <p>{{ this.application.internship.jobDescription }}</p>
           </div>
         </div>
       </mat-card>

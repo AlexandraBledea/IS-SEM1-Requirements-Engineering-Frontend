@@ -1,1 +1,127 @@
-<p>recruiter-application-details works!</p>
+<app-recruiter-nav-bar></app-recruiter-nav-bar>
+<body>
+  <div class="content-container">
+    <div class="main-container">
+      <mat-card class="internship-info-card">
+        <div class="title-container">
+          <p>
+            <span class="title-span">Job Title: </span>
+            {{ this.internship.jobTitle }}
+          </p>
+        </div>
+
+        <div class="info-container">
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Company Name: </span>
+              {{ this.internship.company.name }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Salary: </span>
+              {{ this.internship.salary }}
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Job Position: </span>
+              {{ this.internship.position }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Duration: </span>
+              {{ this.internship.duration }}
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Industry: </span>
+              {{ this.internship.industry }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Available positions: </span>
+              {{ this.internship.availablePositions }}
+            </p>
+          </div>
+
+          <div class="paragraph-container">
+            <p class="info-paragraph">
+              <span class="title-span">Location: </span>
+              {{ this.internship.location }}
+            </p>
+            <p class="info-paragraph">
+              <span class="title-span">Deadline: </span>
+              {{ this.internship.deadline }}
+            </p>
+          </div>
+        </div>
+
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">Job Description:</p>
+            <p>{{ this.internship.jobDescription }}</p>
+          </div>
+        </div>
+
+        <div class="long-info-container">
+          <p class="title-span">Requirements:</p>
+          <p>
+            {{ this.internship.requirements }}
+          </p>
+        </div>
+
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">Schedule:</p>
+            <p>
+              {{ this.internship.schedule }}
+            </p>
+          </div>
+        </div>
+
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">Process:</p>
+            <p>
+              {{ this.internship.process }}
+            </p>
+          </div>
+        </div>
+
+        <div class="long-info-wrapper-container">
+          <div class="long-info-container">
+            <p class="title-span">Benefits:</p>
+            <p>
+              {{ this.internship.benefits }}
+            </p>
+          </div>
+        </div>
+
+        <div class="save-button-container">
+          <button
+            class="info-button"
+            (click)="editInternship()"
+            mat-raised-button
+            color="accent"
+            type="submit"
+            id="form-button"
+          >
+            Edit
+          </button>
+
+          <button
+            class="info-button"
+            (click)="deleteInternship()"
+            mat-raised-button
+            color="accent"
+            type="submit"
+            id="form-button"
+          >
+            Delete
+          </button>
+          <br />
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</body>
